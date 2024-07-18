@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "iqcode",
+  "risk": "2",
+  "title": "Potential DOS due to unbounded loop in subgame updates",
+  "issueId": 11,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/11"
+}
