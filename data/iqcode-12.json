@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "iqcode",
+  "risk": "2",
+  "title": "Hard-coded calldata offset in l2BlockNumber function reduces upgradability",
+  "issueId": 12,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/12"
+}
