@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "Topmark",
+  "risk": "3",
+  "title": "Incorrect Depth Check in Step Function Leading to Invalid Step Execution",
+  "issueId": 18,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/18"
+}
