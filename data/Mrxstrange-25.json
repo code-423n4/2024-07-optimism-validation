@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "Mrxstrange",
+  "risk": "2",
+  "title": "Unrestricted Access to resolveClaim Function Allows Anyone to Modify Status Value",
+  "issueId": 25,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/25"
+}
