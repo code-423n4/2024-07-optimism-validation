@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "Mrxstrange",
+  "risk": "2",
+  "title": "Implicit underflows can revert it ",
+  "issueId": 29,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/29"
+}
