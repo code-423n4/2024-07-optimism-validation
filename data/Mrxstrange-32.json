@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "Mrxstrange",
+  "risk": "2",
+  "title": "Improper Challenger Duration Return Value Causes resolveClaim() Function Revert",
+  "issueId": 32,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/32"
+}
