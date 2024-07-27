@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "bronze_pickaxe",
+  "risk": "3",
+  "title": "`.counteredBy` can be overwritten, breaking a main invariant",
+  "issueId": 36,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/36"
+}
