@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "RI_trollers",
+  "risk": "2",
+  "title": "L1 re-orgs could cause `Position` to be different, resulting in `move()` being called on a different node",
+  "issueId": 42,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/42"
+}
