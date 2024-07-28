@@ -46,7 +46,7 @@ the blocks processed,not the next block to be processed.
         if (blocksProcessed != _inputStartBlock) revert WrongStartingBlock();
 
 ```
-if we want to make sure `_inputStartBlock` in next block to be processed, it should be ""
+if we want to make sure `_inputStartBlock` in next block to be processed, it should be 
 
 ```diff
 
