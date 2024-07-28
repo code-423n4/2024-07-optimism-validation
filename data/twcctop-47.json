@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "twcctop",
+  "risk": "2",
+  "title": "reset `initLPP`  may get funds stuck in contract",
+  "issueId": 47,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/47"
+}
