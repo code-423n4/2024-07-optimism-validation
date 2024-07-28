@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "kuprum",
+  "risk": "3",
+  "title": "Spoofing of PreimageOracle by squeezing unfinalized LPPs",
+  "issueId": 55,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/55"
+}
