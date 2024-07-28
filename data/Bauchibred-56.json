@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": "Inability to execute withdrawals for a game with the correct _rootClaim_ in an edge case",
+  "issueId": 56,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/56"
+}
