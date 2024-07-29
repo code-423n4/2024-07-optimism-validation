@@ -17,5 +17,26 @@
 
 # L-01 Incorrect checks in preImage Oracle allow for bypass validations against OOB errors
 ## Summary 
-## Vulnerability Details 
+## Vulnerability Details
+
+
+# L-02 Theoretical Overflow at LibPosition#wrap() could potentially lead to manipulation of position | 1 |
+
+The wrap() function could overflow whenever `indexAtDepth` is set to `type(uint128).max`. 
+
+```solidity
+    function wrap(uint8 _depth, uint128 _indexAtDepth) internal pure returns (Position position_) {
+        assembly {
+            // gindex = 2^{_depth} + _indexAtDepth
+// @audit-issue Overflow possible when `_indexAtDepth` is set at `type(uint128).max`.
+            position_ := add(shl(_depth, 1), _indexAtDepth)
+        }
+    }   
+```
+## Recommended Mitigation Steps
+
+Please add a check before the assembly code to make sure that _indexAtDepth would never overflow to avoid any wrong _position.
+
+
+
 
