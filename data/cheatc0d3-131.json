@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "cheatc0d3",
+  "risk": "2",
+  "title": "Clock Duration Check Bypass in move Function",
+  "issueId": 131,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/131"
+}
