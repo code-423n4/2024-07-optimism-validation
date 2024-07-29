@@ -7,12 +7,11 @@
 | L-01 | Incorrect checks in preImage Oracle allow for bypass validations against OOB errors | 2 |
 | L-02 |  Theoretical Overflow at LibPosition#wrap() could potentially lead to manipulation of position | 1 |
 | L-03 | Hashing leafs of 64 bytes allows the preimage to be vulnerable to second node preimage attacks | 2 |
-| L-04 | Alignment Check for lw //MIPS | 1 |
-| L-05 | Opcode differences btw the 2 chains are not handled whenever executing the single instruction trace | 4 |
-| L-06 |  lhu (load halfword unsigned): Address must be divisible by 2 | 1 |
-| L-07 | Unsafe cast of the bond can lead to loss of funds even when the bond > max.128 by 1 | 1 |
-| L-08 | The used Proxy for the DisputeGameFactory.sol is not fully EIP1967 compliant  | 1 |
-| L-09 | partial parts can be forced to be stored in the preimageoracle even when not finalized | 2 |
+| L-04 | Opcode differences btw the 2 chains are not handled whenever executing the single instruction trace | 4 |
+| L-05 | Unsafe cast of the bond can lead to loss of funds even when the bond > max.128 by 1 | 1 |
+| L-06 | The used Proxy for the DisputeGameFactory.sol is not fully EIP1967 compliant  | 1 |
+| L-07 | partial parts can be forced to be stored in the preimageoracle even when not finalized | 2 |
+| L-08 | Lack of input validation at loadPrecompilePreimagePart()
 
 # L-01 Incorrect checks in preImage Oracle allow for bypass validations against OOB errors
 ## Summary 
@@ -37,7 +36,7 @@ The wrap() function could overflow whenever `indexAtDepth` is set to `type(uint1
 Please add a check before the assembly code to make sure that `_indexAtDepth` would never overflow and return a wrong `_position`.
 
 
-# L-08 The used Proxy for the DisputeGameFactory.sol is not fully EIP1967 compliant
+# L-06 The used Proxy for the DisputeGameFactory.sol is not fully EIP1967 compliant
 
 **NOTE:**
 *- This should be seen as in scope, this issue pinpoint a functionality of [DisputeGameFactoryProxy.sol](https://docs.optimism.io/chain/addresses) the proxy that is used by the DisputeGameFactory.sol (in-scope)*
@@ -61,3 +60,30 @@ References:
 - Solidity Documentation on Address.isContract: Link to [Solidity docs](https://docs.soliditylang.org/en/v0.8.6/units-and-global-variables.html#address-related)
 - [Identic issue from Euler contest on Cantina](https://cantina.xyz/code/41306bb9-2bb8-4da6-95c3-66b85e11639f/findings/320) *(got confirmed by judge as low)*
 
+
+# L-08 | Lack of input validation at loadPrecompilePreimagePart()
+
+## Summary
+
+The loadPrecompilePreimagePart() function has a straightforward functionality which prepares a precompile result to be read by a precompile key for the specified offset. However there's a major flaw within the function that allow anyone to set an arbitrary address to the `_precompile` parameter although the code does not require it.
+
+## Proof of Concept
+
+The function uses `staticcall` to call the precompiled contract at `_precompile` address. But before initiating the `staticcall` there must be verified wether the address is a precompile contract or any arbitrary external contract. 
+
+https://github.com/code-423n4/2024-07-optimism/blob/70556044e5e080930f686c4e5acde420104bb2c4/packages/contracts-bedrock/src/cannon/PreimageOracle.sol#L357
+
+The user supplied address is directly used within the `staticcall` without verifying if the address is a precompiled contract.
+
+## Impact 
+
+Initiating calls to arbitrary addresses (e.g EOA, malicious contracts,...) instead of a precompiled contracts which is the main purpose of the function, could lead to unintended behavior.
+
+
+## Tools Used
+
+Manual review
+
+## Recommended Mitigation Steps
+
+Consider adding a check where only precompiled contracts (0x01 to 0x09, 0x0a) could be called. 
