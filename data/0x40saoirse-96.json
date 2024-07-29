@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "0x40saoirse",
+  "risk": "2",
+  "title": "An unbounded for-loop in `resolveClaim` could lead to DoS ",
+  "issueId": 96,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/96"
+}
