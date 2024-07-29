@@ -1,4 +1,4 @@
-# Casting a uint256 to a smaller uint32
+# Casting a uint256 to a smaller uint32 may result in value truncation
 The `move` funciton used for both `attack` and `defend` moves, and creates claim data:
 ```solidity
     function move(Claim _disputed, uint256 _challengeIndex, Claim _claim, bool _isAttack) public payable virtual {
