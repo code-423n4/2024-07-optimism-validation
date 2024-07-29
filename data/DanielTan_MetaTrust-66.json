@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "DanielTan_MetaTrust",
+  "risk": "2",
+  "title": "The `getChallengerDuration` function lacks handling the case when the parent indexer does not exist",
+  "issueId": 66,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/66"
+}
