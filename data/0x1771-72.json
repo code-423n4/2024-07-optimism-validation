@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "0x1771",
+  "risk": "2",
+  "title": "SPLIT_DEPTH should be + 1 instead of -1",
+  "issueId": 72,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/72"
+}
