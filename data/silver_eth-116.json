@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "silver_eth",
+  "risk": "3",
+  "title": "A claimant with a valid claim will lose their bond and will be considered if there is a valid defence but no attack against their claim ",
+  "issueId": 116,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/116"
+}
