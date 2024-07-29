@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "Bac0nj",
+  "risk": "2",
+  "title": "Attacker can reverse chess clock by attacking a defense",
+  "issueId": 73,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/73"
+}
