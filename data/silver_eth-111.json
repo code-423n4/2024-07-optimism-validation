@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "silver_eth",
+  "risk": "3",
+  "title": "Any claim true or false will be seen as true as long as an attack against it failed ",
+  "issueId": 111,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/111"
+}
