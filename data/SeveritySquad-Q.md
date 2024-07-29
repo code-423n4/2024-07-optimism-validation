@@ -13,7 +13,6 @@
 | L-07 | Unsafe cast of the bond can lead to loss of funds even when the bond > max.128 by 1 | 1 |
 | L-08 | The used Proxy for the DisputeGameFactory.sol is not fully EIP1967 compliant  | 1 |
 | L-09 | partial parts can be forced to be stored in the preimageoracle even when not finalized | 2 |
-| L-10 | Lack of input validation at loadPrecompilePreimagePart() | 1 |
 
 # L-01 Incorrect checks in preImage Oracle allow for bypass validations against OOB errors
 ## Summary 
