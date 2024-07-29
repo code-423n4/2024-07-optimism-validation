@@ -60,7 +60,41 @@ References:
 - Solidity Documentation on Address.isContract: Link to [Solidity docs](https://docs.soliditylang.org/en/v0.8.6/units-and-global-variables.html#address-related)
 - [Identic issue from Euler contest on Cantina](https://cantina.xyz/code/41306bb9-2bb8-4da6-95c3-66b85e11639f/findings/320) *(got confirmed by judge as low)*
 
+# L-03 Hashing leafs of 64 bytes allows the preimage to be vulnerable to second node preimage attacks
+https://github.com/code-423n4/2024-07-optimism/blob/70556044e5e080930f686c4e5acde420104bb2c4/packages/contracts-bedrock/src/cannon/PreimageOracle.sol#L756C3-L785C6
+## Summary
+```solidity
+  function _verify(
+        bytes32[] calldata _proof,
+        bytes32 _root,
+        uint256 _index,
+        bytes32 _leaf
+    )
+        internal
+        pure
+        returns (bool isValid_)
+    {
+        /// @solidity memory-safe-assembly
+        assembly {
+            function hashTwo(a, b) -> hash {
+                mstore(0x00, a)
+                mstore(0x20, b)
+                hash := keccak256(0x00, 0x40)
+            }
 
+            let value := _leaf
+            for { let i := 0x00 } lt(i, KECCAK_TREE_DEPTH) { i := add(i, 0x01) } {
+                let branchValue := calldataload(add(_proof.offset, shl(0x05, i)))
+
+                switch and(shr(i, _index), 0x01)
+                case 1 { value := hashTwo(branchValue, value) }
+                default { value := hashTwo(value, branchValue) }
+            }
+
+            isValid_ := eq(value, _root)
+        }
+    }
+```
 # L-08 | Lack of input validation at loadPrecompilePreimagePart()
 
 ## Summary
