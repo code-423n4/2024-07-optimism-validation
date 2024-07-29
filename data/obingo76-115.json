@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "obingo76",
+  "risk": "3",
+  "title": "Inverted Logic in resolveClaim Function May Cause Unresolved Disputes and Financial Losses",
+  "issueId": 115,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/115"
+}
