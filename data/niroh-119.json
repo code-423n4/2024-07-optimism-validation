@@ -1,0 +1,8 @@
+{
+  "contest": 400,
+  "handle": "niroh",
+  "risk": "3",
+  "title": "Attacker can challenge a game with correct root and win by spoofing one of the local preimages",
+  "issueId": 119,
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/119"
+}
