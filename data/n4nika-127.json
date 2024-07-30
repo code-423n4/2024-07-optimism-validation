@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Loss of funds due to no checks whether `_claimedSize` is reached in `addLeavesLPP` in `PreimageOracle`",
   "issueId": 127,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/127"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/127",
+  "validatedIssueId": 56,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/56"
 }
