@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Inability to challenge the first LLP due to a wrong check",
   "issueId": 44,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/44"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/44",
+  "validatedIssueId": 75,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/75"
 }
