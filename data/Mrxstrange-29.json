@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Implicit underflows can revert it ",
   "issueId": 29,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/29"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/29",
+  "validatedIssueId": 84,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/84"
 }
