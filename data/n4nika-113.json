@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "No limit enforced in `initLPP` for `_claimedSize` can lead to loss of funds",
   "issueId": 113,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/113"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/113",
+  "validatedIssueId": 60,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/60"
 }
