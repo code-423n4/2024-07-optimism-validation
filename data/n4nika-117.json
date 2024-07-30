@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "`squeezeLPP` and `loadKeccak256PreimagePart` use the same key-prefix possibly leading to content corruption",
   "issueId": 117,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/117"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/117",
+  "validatedIssueId": 59,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/59"
 }
