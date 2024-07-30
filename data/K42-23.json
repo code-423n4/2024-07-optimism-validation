@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Fraudulent Proofs and Incorrect Resolution in `challengeRootL2Block()`",
   "issueId": 23,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/23"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/23",
+  "validatedIssueId": 88,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/88"
 }
