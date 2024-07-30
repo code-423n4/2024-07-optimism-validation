@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Winning Challenges Can Be Stolen ",
   "issueId": 9,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/9"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/9",
+  "validatedIssueId": 92,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/92"
 }
