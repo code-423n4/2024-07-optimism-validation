@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Possible underflow if `CLOCK_EXTENSION` is greater than half the `MAX_CLOCK_DURATION`",
   "issueId": 79,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/79"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/79",
+  "validatedIssueId": 66,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/66"
 }
