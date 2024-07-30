@@ -1,0 +1,151 @@
+issue,title,primary finding,validator comment,status,root cause (URL),size
+findings-39,Improper proof validation causes incorrect resolution of step,findings-39,,Satisfactory,,102
+validation-31,Missing address check for instructions LH and LHU,validation-31,leaving MIPS for sponsor :),Satisfactory,,24
+validation-125,"if step is called in a game with multiple branches, the call will almost always revert ",validation-125,"unsure, save for sponsor",Satisfactory,,29
+validation-33,"For instructions such as DIV and mthi, store register will be set to 0, which is unexpectedly.",validation-33,leaving MIPS for sponsor :),Satisfactory,,30
+findings-54,Panic in MIPS VM Could Lead to Unchallengeable L2 Output Root Claim,findings-54,leaving MIPS for sponsor :),Satisfactory,,31
+validation-30,The function `loadLocalData` does not properly check the `_partOffset`.,validation-30,"why is the limit 64? where's POC? i assume it's intentional we can take the end of it, but are we sure memory is clean after?",Satisfactory,,35
+findings-10,Honest party's proposed L2 block could become unsafe when re-org takes place,findings-6,"might not be a dup of 6, could go either way, same root cause though",Satisfactory,,35
+findings-43,l2Number may overflow uint64 if split depth is larger than 64,findings-43,,Satisfactory,,36
+findings-26,An attacker can take the bond away from the honest challenger if `FDG.CLOCK_EXTENSION` is less than `PreimageOracle.CHALLENGE_PERIOD`,findings-29,,Satisfactory,,37
+validation-45,challengeRootL2Block can be called after the clock has expired,,i'm on the fence if this is an issue but putting it through for protocol team to decide,Satisfactory,,38
+validation-71,squeezeLPP can be called on unfinalized proposals to write arbitrary data,findings-13,,Satisfactory,,39
+findings-41,`MIPS` - Incorrect implementation of SRAV instruction,findings-41,leaving MIPS for sponsor :),Satisfactory,,40
+validation-117,`squeezeLPP` and `loadKeccak256PreimagePart` use the same key-prefix possibly leading to content corruption,validation-117,"i think this is invalid and how it should be, but will ask for POC",Satisfactory,,41
+validation-48,`challengeLPP`  don't have need the proposal is being finalized,validation-48,is this intentional? seems like it could be a problem in that it could be challenged when it's not ready?,Satisfactory,,41
+validation-29,Implicit underflows can revert it ,validation-29,don't think this is valid (it's passed to lnWad that returns positive) but will ask for POC,Satisfactory,,41
+validation-49,malicious user is possible front-run `challengeLPP`  to get funds,findings-53,not sure if this is an issue but it's valid so will let sponsor decide,Satisfactory,,43
+findings-6,Attacker can continuously create games for not yet safe l2 blocks to prevent the update of anchor state,findings-6,,Satisfactory,,43
+findings-37,`MIPS` - Incorrect handling of memory mapping,findings-37,leaving MIPS for sponsor :),Satisfactory,,44
+findings-17,The lack of early reverts in `FDG.move` and `FDG.step` functions makes the protocol more centralized ,findings-17,"this is a nice suggestion but don't think it's a med, leaving for sponsor",Satisfactory,,44
+findings-15,"The `MIPS` doesn't implement `ADD`, `ADDI`, and `SUB` instructions correctly",findings-15,leaving MIPS for sponsor :),Satisfactory,,44
+findings-53,Frontrunning of successful `step()` and `challengeRootL2Block()` calls allows piggybacking on honest challengers' work,findings-53,"some of the dups focus on challengeLPP and challengeFirstLPP, but same idea",Satisfactory,,48
+validation-79,Possible underflow if `CLOCK_EXTENSION` is greater than half the `MAX_CLOCK_DURATION`,validation-79,"seems legit, not the case on mainnet but could happen on other op stack chains",Satisfactory,,50
+validation-52,DOS through claim of unsafe blocks,findings-6,,Satisfactory,,50
+findings-42,Improper resolution for block number challenge of the root claim,findings-42,"this only impacts root bond and don't think it's an issue, but maybe legit",Satisfactory,,51
+findings-52,PvP dynamic incentivizes honest challengers to waste resources and leak value to compete against each other,findings-52,i don't think this is an issue but want to share with sponsor just in case,Satisfactory,,52
+validation-120,Attacker can steal any amount from the L1 bridge by submitting a game for a future L2Block that doesn't exist yet,validation-120,this is false (step will return invalid if L1 data isn't there) but passing to sponsor to be safe,Satisfactory,,58
+findings-30,The clock extension is not applied correctly at `SPLIT_DEPTH - 1`,findings-44,,Satisfactory,,58
+validation-57,There is no fixed deadline. The Fault Dispute Game can essentially go on because of the unlimited extension,validation-57,"not sure this is an issue, think about the upper bound, worth sharing with sponsor",Satisfactory,,60
+validation-47,reset `initLPP`  may get funds stuck in contract,validation-47,,Satisfactory,,60
+findings-25,"During the staticcall to the precompile the revert() couldn't be catched, which could lead to unintended behaviour.",findings-25,i think this is invalid but pass to sponsor to confirm,Satisfactory,,60
+findings-20,The fault dispute game can encounter unexpected situations,findings-20,i'm not sure about this one,Satisfactory,,60
+validation-35,Game creator can create games whose L2 block cannot be challenged even when it contains absurd values,validation-35,,Satisfactory,,65
+findings-24,Honest party's move could become invalid when re-org takes place,findings-24,,Satisfactory,,65
+findings-32,Calls to `challengeLPP()` and `challengeFirstLPP()` are vulnerable to generalized frontrunning,findings-53,,Satisfactory,,66
+validation-82,Invalid claims at `MAX_GAME_DEPTH` cannot always be disproven with a `step`,validation-82,,Satisfactory,,67
+validation-60,"If disputes are uncontested at the same depth, then the bond recipient would be the dispute creator and not the game winner",validation-60,don't think it's valid but passing along,Satisfactory,,68
+findings-40,"`MIPS` - `RDHWR`(opcode 0x1F, function code 0x3B) instruction is not handled",findings-40,leaving MIPS for sponsor :),Satisfactory,,68
+validation-95,The incentive to challenge a malicious proposal is completely killed as the `challengeLPP()` & `challengeFirstLPP()` is vulnerable to frontruning attacks.,findings-53,,Satisfactory,,77
+findings-2,Large preimage proposal can be forged given a controlled preimage,findings-14,,Satisfactory,,77
+validation-13,m-01 inconsistent requirement at the contract procedure at `DisputeGameFactory` contract arabgodx,validation-13,this was rejected in sherlock (https://github.com/sherlock-audit/2024-02-optimism-2024-judging/issues/87) but i could see argument either way,Satisfactory,,81
+validation-8,Array Lengths Not Checked,validation-8,"can't imagine this causes a problem, none given, but confirm with sponsor there's no way to use this to get invalid proof through",Satisfactory,,81
+validation-112,Break in logic implementation of `move`,validation-64,,Satisfactory,,83
+validation-37,Addresses can be pre-populated with bad data,validation-37,"this isn't a problem because op-program will never use precompile syscall for a non-precompile addr, confirm with sponsor",Satisfactory,,83
+validation-27,Insufficient Input Validation in 'PreimageKeyLib' Functions,validation-27,i don't think this is a problem but passing to sponsor just in case,Satisfactory,,83
+findings-46,"In PreimageOracle, successful challengers of LPP might lose bond rewards due to missing checks.",findings-16,,Satisfactory,,84
+validation-127,Loss of funds due to no checks whether `_claimedSize` is reached in `addLeavesLPP` in `PreimageOracle`,validation-127,"not sure this is an issue, but it is true",Satisfactory,,85
+findings-44,"In some cases, proper CLOCK_EXTENTSION time cannot be ensured to generate the initial instruciton trace",findings-44,,Satisfactory,,85
+findings-36,Invalid DISPUTED_L2_BLOCK_NUMBER is passed to VM,findings-36,,Satisfactory,,86
+findings-35,FaultDisputeGame's step preStateClaim calculation can be incorrect in some cases,findings-35,,Satisfactory,,86
+findings-29,The LPP challenge period can cause malicious and freeloader claims to be uncounterable and can also cause freeloader claims to be abused to entrap honest challengers,findings-29,,Satisfactory,,86
+validation-44,Inability to challenge the first LLP due to a wrong check,validation-44,"i believe this is wrong and ""postState"" is being used to just mean the single state at 0, but pass to sponsor to confirm",Satisfactory,,88
+validation-97,No checks for zero size in `loadLocalData`,validation-97,i don't think this is an issue but sharing in case it requires updates in the spec,Satisfactory,,90
+findings-28,Some preimages to precompiles cannot be proven using `loadPrecompilePreimagePart()` ,findings-28,why wouldn't the normal sha precompile work on L1? i don't buy it. but this is an issue if L2 and L1 have different chain gas limits...,Satisfactory,,90
+validation-94,A claim can be countered with the `step` function after the `rootClaim` has been resolved,validation-36,,Satisfactory,,97
+validation-64,The invariant of not exceeding `MAX_CLOCK_DURATION` when placing moves is wrongly protected against,validation-64,,Satisfactory,,99
+validation-38,Dirty bits during loadPrecompiledPreimage breaks data integrity,validation-38,i don't think this is a problem but passing to sponsor just in case,Satisfactory,,100
+validation-101,An incorrect Claim can be treated as a correct one in a specific edge case.,validation-101,"this should be invalid because preimages are keyed by partOffset, but sending to sponsor to confirm",Satisfactory,,101
+findings-14,An attacker can finalize invalid LPPs by repeating `initLPP` call with different `_partOffset`,findings-14,,Satisfactory,,105
+validation-106,Wrong disputed L2BlockNumber can get written into `PreimageOracle` using `_partOffset`,validation-106,,Satisfactory,,107
+findings-16,The lack of early reverts in the `challengeLPP` and `challengeFirstLPP` functions increases the centralization of the protocol and makes whale attacks cheaper,findings-16,"it's true that second tx will go through and get no bond, would be kinder to change it, probably not a med though",Satisfactory,,110
+validation-26,Uncontrolled memory growth in `handleSyscall()` ,validation-26,leaving MIPS for sponsor :),Satisfactory,,116
+findings-13,An attacker can bypass the challenge period during LPP finalization,findings-13,,Satisfactory,,117
+findings-9,The clock extension doesn't work correctly when the depth of the move is SPLIT_DEPTH - 1,findings-44,,Satisfactory,,118
+validation-65, Valid _moves_ would be rejected due to a wrong check,validation-64,,Satisfactory,,121
+findings-23,Extra time allocated for generating execution trace can be skipped,findings-44,,Satisfactory,,121
+validation-128,Unchallengeable false Exit claims in FaultDisputeGame,validation-128,,Satisfactory,,127
+validation-113,No limit enforced in `initLPP` for `_claimedSize` can lead to loss of funds,validation-113,couldn't we call addLeaves multiple times? i think this is invalid but confirm with sponsor,Satisfactory,,127
+findings-3,Large preimage proposal can be forged by bypassing challenge period,findings-13,,Satisfactory,,132
+validation-43,Unvalidated Memory Access in `readMem` and `writeMem` Functions,validation-43,leaving MIPS for sponsor :),Satisfactory,,137
+findings-38,`MIPS` - No syscall handling for `mmap2`(4210),findings-38,leaving MIPS for sponsor :),Satisfactory,,137
+validation-21,Incorrect Memory Alignment and Proof Verification in 'readMem' and 'writeMem' Functions,validation-21,leaving MIPS for sponsor :),Satisfactory,,138
+validation-70,No checks whether `LPP` is currently in `CHALLENGE_PERIOD` when it gets challenged,findings-13,only partial credits - missed the exploit!,Satisfactory,,139
+findings-21,`squeezeLPP()` can be called on unfinalized proposals,findings-13,,Satisfactory,,140
+findings-51,`CLOCK_EXTENSION` logic does not account for LPP `CHALLENGE_PERIOD`,findings-29,,Satisfactory,,142
+findings-33,DoS of LPP challenges via `addLeaves()` allows griefing of honest challengers,findings-33,not really any harm here but it's valid so passing it on to sponsor,Satisfactory,,152
+validation-55,Spoofing of PreimageOracle by squeezing unfinalized LPPs,findings-13,,Satisfactory,,163
+validation-39,Stepping without risk opens up MEV,findings-53,,Satisfactory,,166
+validation-110,Manipulating preimage length leads to ability to disprove or DoS VM step execution,validation-110,"this is invalid because localLocalData's localizeIdent function uses caller, so it'll only ever read when this is called from FDG. passing to sponsor in case i missed something.",Satisfactory,,178
+validation-67,Attacker can modify previously verified entry in `PreimageOracle`,findings-14,,Satisfactory,,183
+validation-23,Fraudulent Proofs and Incorrect Resolution in `challengeRootL2Block()`,validation-23,"iiuc, this requires coming up with fake preimage for a hash?",Satisfactory,,184
+findings-22,L2 precompile calls can be impossible to reproduce on L1,findings-22,"close to known issue, but i think it's legit and separate.",Satisfactory,,207
+findings-27,"LPP metadata can be altered after the challenge period is over, allowing incorrect states to be proven",findings-14,,Satisfactory,,217
+findings-19,The person who submits a large proposal can safely get their bond back at the beginning,findings-13,only partial credits - missed the exploit!,Satisfactory,,218
+validation-41,Spoofing of PreimageOracle via re-`initLPP` & re-`squeezeLPP`,findings-13,,Satisfactory,,238
+validation-36,"`.counteredBy` can be overwritten, breaking a main invariant",validation-36,,Satisfactory,,271
+validation-11,Potential DOS due to unbounded loop in subgame updates,,there are no loops over subgames array,Unsatisfactory,,22
+validation-74,Create a game with big MAX_GAME_DEPTH could cost too much to win,,max game depth is set by chain; proof of whale is included in known issues,Unsatisfactory,,23
+validation-58,Redundancy,,out of scope & no impact,Unsatisfactory,,24
+validation-88,Blockhash Function Limitation,,"it's only used for block.number - 1, which is always in the past 256",Unsatisfactory,,27
+validation-89,Constructor Misuse,,initialize(0) does the same thing,Unsatisfactory,,28
+validation-73,Attacker can reverse chess clock by attacking a defense,,i don't think this is right. should have POC if real.,Unsatisfactory,,28
+validation-83,Insufficient Input Validation,,not a relevant check,Unsatisfactory,,29
+validation-66,The `getChallengerDuration` function lacks handling the case when the parent indexer does not exist,,"if grandparent doesn't exist, it is correct to add to 0",Unsatisfactory,,32
+validation-116,A claimant with a valid claim will lose their bond and will be considered if there is a valid defence but no attack against their claim ,,"if charlie claim lies about B=>C, we can attack against it. if charlie claim lies about C=>A, we can defend against it. one of those must be the case because otherwise A would be valid.",Unsatisfactory,,34
+validation-4,Use of `tx.origin` will cause problems with optimism,,intentional decision,Unsatisfactory,,34
+validation-81,Unchecked External Calls,,high level calls to contracts are automatically checked for success,Unsatisfactory,,35
+validation-91,Lack of Input Validation,,protocol error,Unsatisfactory,,37
+validation-12,Hard-coded calldata offset in l2BlockNumber function reduces upgradability,,this is how clones with immutable args works,Unsatisfactory,,37
+validation-5,Centralization Risk for Trusted Owners,,design decision,Unsatisfactory,,37
+validation-85,Lack of Access Control,,"intentional, no risk",Unsatisfactory,,38
+validation-122,Incorrect Loop Condition in `findlatestgames`,,not true,Unsatisfactory,,42
+validation-84,Direct Access to State Variables,,irrelevant,Unsatisfactory,,42
+validation-78,Challenger might not get reimbursed,,"LLP bonds are paid out in squeezeLLP, so both are compensated",Unsatisfactory,,42
+validation-87,Reentrancy Attack in create function,,only calls trusted contract that it just deployed,Unsatisfactory,,43
+validation-6,Access-controlled functions cannot be called when L2 sequencers are down,,"out of scope, nothing to do with fault dispute game which lives on L1",Unsatisfactory,,43
+validation-86,Unchecked External Calls,,trusted contracts,Unsatisfactory,,44
+validation-72,SPLIT_DEPTH should be + 1 instead of -1,,"it's looking for the grandparent, so -1 is right",Unsatisfactory,,44
+validation-126,Incorrect Bond Payouts in resolveClaim Due to Mishandling of counteredBy Field,,"relies on being able to change counteredBy, with no evidence this is possible",Unsatisfactory,,45
+validation-118,Incorrect Revert Condition in `step` Function,,"this is intentional, needs to prove invalid step in case they agree",Unsatisfactory,,46
+validation-111,Any claim true or false will be seen as true as long as an attack against it failed ,,"there can be multiple attacks against a claim, so this is fine",Unsatisfactory,,46
+validation-24,Contradictory logic in (stepPos.depth() Validation,,"it's checking if a hypothetical move against the parent step would be +1, which is correct. equivalent to parentPos.depth() == MAX_GAME_DEPTH.",Unsatisfactory,,46
+findings-12,An invariant violation and revert in the FaultDisputeGame.step function,,"it's checking if a hypothetical move against the parent step would be +1, which is correct. equivalent to parentPos.depth() == MAX_GAME_DEPTH.",Unsatisfactory,,46
+validation-25,Unrestricted Access to resolveClaim Function Allows Anyone to Modify Status Value,,resolve() can only be called if all subgames are resolved,Unsatisfactory,,47
+validation-121,Incorrect Bit Manipulation in `setCountered` Function,,you can see at top of CannonTypes that countered is given 64 bits. the function correctly takes existing value with final 64 bits cleared and adds new countered bool flag to it.,Unsatisfactory,,48
+validation-59,"The bisection root should be at SPLIT_DEPTH + 1, not SPLIT_DEPTH - 1",,"it's looking for the grandparent, so -1 is right",Unsatisfactory,,48
+validation-80,"Reentrancy Attack in initialize, resolve (etc) Functions",,weth contract trusted,Unsatisfactory,,50
+validation-123,A defense can be made against the root claim of the execution trace bisection subgames,,"next position is the depth of parent pos + 1. we want to check if parentPos.depth() == SPLIT_DEPTH + 1, so this is equivalent.",Unsatisfactory,,52
+validation-96,An unbounded for-loop in `resolveClaim` could lead to DoS ,,"numToResolve handles this, it's a user input so they can avoid DOS",Unsatisfactory,,52
+validation-2,h-01 Unsafe Admin Control in DisputeGameFactory arabgodx,,admin is trusted,Unsatisfactory,,53
+validation-115,Inverted Logic in resolveClaim Function May Cause Unresolved Disputes and Financial Losses,,the condition is exactly as the warden recommended in the code,Unsatisfactory,,55
+validation-61,A Fault Dispute Game can be played solo.,,"all this behavior would be fine, since there can be unlimited moves agaisnt each claim",Unsatisfactory,,57
+validation-62, `FaultDisputeGame` claims could be unresolvable in some edge cases,,"numToResolve handles this, it's a user input so they can avoid DOS",Unsatisfactory,,60
+validation-7,Initializers could be front-run,,"optimism deployment does ""upgradeAndCall()"" to address this",Unsatisfactory,,60
+validation-90,Incorrect Use of Assembly for Array Management,,assembly gud,Unsatisfactory,,65
+validation-50,the proof data of function  `squeezeLPP` can be used to call  `challengeLPP` ,,"challengeLPP requires that the state matrix after doesn't match what it should, will fail for honest LPPs",Unsatisfactory,,68
+validation-54,Current method of hashing the leaves make it vulnerable to the second preimage attack,,"second preimage can't happen when the size of the leaf is 200 bytes, which it is",Unsatisfactory,,71
+validation-46,`load**` functions don't check  key exists and don't have access control ,,in localizeIdent() we hash in the caller,Unsatisfactory,,73
+validation-32,Improper Challenger Duration Return Value Causes resolveClaim() Function Revert,,"if the two values are equal, the check passes and there's no revert",Unsatisfactory,,91
+validation-56,Inability to execute withdrawals for a game with the correct _rootClaim_ in an edge case,,"close to another valid issue but doesn't provide any info on how to make a game fail, so not a valid finding",Unsatisfactory,,97
+validation-109,Immutable ABSOLUTE_PRESTATE forces frequent redeployments and allows proving invalid withdrawals,,"absolute prestate is the state of the MIPS VM before each block is executed, it doesn't expire",Unsatisfactory,,99
+findings-31,The LPP proposer may not be reimbursed their gas costs by the bonds at `MAX_GAME_DEPTH` because `step()` does not check if the LPP proposer is the one that called it,,"squeezeLPP pays out to the claimaint, not caller, and that's the reward for doing addLeavesLPP",Unsatisfactory,,101
+validation-53,Challenges would arise while trying to squeez LPP during single proposal scenarios,,"challengeFirstLPP challenges index 0, challengeLPP does pre => post for all after that",Unsatisfactory,,106
+validation-42,"L1 re-orgs could cause `Position` to be different, resulting in `move()` being called on a node with a different `Position`",,we check that disputed claim that's passed is identical to parent claim; also claimHash includes position so that check won't match,Unsatisfactory,,106
+validation-99,The honest Challenger can get forced to fight for a game that is not intended with him,,trace extension means that the l2 block being proposed is repeated for rest of the tree,Unsatisfactory,,113
+validation-104,Incorrect address is assumed to be the precompile's address due to incorrect offset used in memory allowing for incorrect outcomes.,,"it's copying 20 bytes for the address, not 32, so 48 lines up properly",Unsatisfactory,,181
+validation-119,Attacker can challenge a game with correct root and win by spoofing one of the local preimages,,"localizeIdent uses the msg.sender in the hash, so don't conflict",Unsatisfactory,,297
+validation-77,Integer Overflow and Underflow Vulnerabilities in MIPS Add Instruction Emulation,validation-77,leaving MIPS for sponsor :),Satisfactory,,39
+validation-131,Clock Duration Check Bypass in move Function,validation-64,,Satisfactory,,52
+validation-75,Unconditional Success Flag Set for Store Conditional (SC) Instruction,validation-75,leaving MIPS for sponsor :),Satisfactory,,52
+validation-10,Moves Can Be Front-Run,findings-53,,Satisfactory,,62
+validation-20,Losing Defender Can Save Bond By Challenging Themselves,validation-20,,Satisfactory,,81
+validation-28,Multiplication Overflow Leading to Memory Corruption and Incorrect Register Write-Back,validation-28,leaving MIPS for sponsor :),Satisfactory,,88
+validation-15,Attacker Can Steals Initial Root Bond in FaultDisputeGame Contract,findings-53,,Satisfactory,,88
+validation-9,Winning Challenges Can Be Stolen ,validation-9,,Satisfactory,,91
+validation-14,False Claims Can Be Settled On Due To Incorrect Time Calculation,validation-64,,Satisfactory,,92
+validation-129,clone can be manupilated,,,Unsatisfactory,,56
+validation-19,Multiple Games Can Be Opened On The Same Issue,,extradata is l2 block num and is validated in `initialize()`,Unsatisfactory,,69
+validation-18,Incorrect Depth Check in Step Function Leading to Invalid Step Execution,,"plus 1 is correct, since we're looking at the nextPosition, which is 1 deeper than stepPos",Unsatisfactory,,70
+validation-114,Re-Entrancy issue in claimCredit Function,,weth is trusted,Unsatisfactory,,110
+validation-34,an Absence of Validation for l2BlockNumber,,,Unsatisfactory,,124
