@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Break in logic implementation of `move`",
   "issueId": 112,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/112"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/112",
+  "validatedIssueId": 95,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/95"
 }
