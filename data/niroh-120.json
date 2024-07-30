@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Attacker can steal any amount from the L1 bridge by submitting a game for a future L2Block that doesn't exist yet",
   "issueId": 120,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/120"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/120",
+  "validatedIssueId": 58,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/58"
 }
