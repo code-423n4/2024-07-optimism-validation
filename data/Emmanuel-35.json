@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Game creator can create games whose L2 block cannot be challenged even when it contains absurd values",
   "issueId": 35,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/35"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/35",
+  "validatedIssueId": 80,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/80"
 }
