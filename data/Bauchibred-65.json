@@ -4,5 +4,7 @@
   "risk": "3",
   "title": " Valid _moves_ would be rejected due to a wrong check",
   "issueId": 65,
-  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/65"
+  "issueUrl": "https://github.com/code-423n4/2024-07-optimism-validation/issues/65",
+  "validatedIssueId": 101,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-optimism-findings/issues/101"
 }
